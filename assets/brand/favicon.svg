@@ -1,0 +1,22 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" role="img" aria-label="SmartMarkers">
+  <defs>
+    <radialGradient id="smf-node" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.55" stop-color="#dff7ff"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </radialGradient>
+  </defs>
+
+  <!-- structure pulse bars: fewer, thicker so they hold at 16px -->
+  <rect x="7"  y="23" width="7" height="18" rx="3.5" fill="#3b82f6"/>
+  <rect x="18" y="14" width="7" height="36" rx="3.5" fill="#f43f5e"/>
+  <rect x="39" y="14" width="7" height="36" rx="3.5" fill="#a855f7"/>
+  <rect x="50" y="23" width="7" height="18" rx="3.5" fill="#64748b"/>
+
+  <!-- vertical cue beam: solid violet, no blur -->
+  <rect x="29" y="6" width="6" height="52" rx="3" fill="#7c5cff"/>
+
+  <!-- luminous node: larger + brighter for contrast at 16px -->
+  <circle cx="32" cy="32" r="11" fill="url(#smf-node)"/>
+  <circle cx="32" cy="32" r="5" fill="#ffffff"/>
+</svg>
