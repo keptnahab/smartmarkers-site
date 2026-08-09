@@ -452,6 +452,7 @@
       <a href="#how">How it works</a>
       <a href="#output">Output</a>
       <a href="#detection">Detection</a>
+      <a href="#features">Features</a>
       <a href="#tools">Tools</a>
       <a href="#scope">Scope</a>
       <a href="#setup">Setup</a>
@@ -472,7 +473,7 @@
     <p class="lead">
       SmartMarkers analyzes your track and drops colored, downbeat-accurate REAPER regions —
       Intro, Verse, Bridge, Chorus, Mid-Eight, Outro — each with its own confidence score, plus a
-      curated set of show events: breakdown, break, stop/resume, drop, staged rises, strobe roll
+      curated set of show events: break/restore, drop, staged rises, strobe roll
       and drumroll. Whatever it hears but can't confidently name lands on the neutral
       <b>Beat Grid</b> lane — one click from becoming exactly what your show needs.
       Built for console timecode work — grandMA3, Hog, Avolites, or any desk that can work with CSV sequence data. It turns hours of manual marker-setting into a single action.
@@ -625,7 +626,7 @@
     <p class="honest-note">
       These shots have the raw drum grids (Kick, Snare, HiHat) switched on to show the full
       picture. They ship switched off: the delivered lane set is deliberately curated —
-      Structure, Bar, Drumroll, Strobe Roll, Rise/Drop, Breakdown/Break and Beat Grid — and
+      Structure, Bar, Drumroll, Strobe Roll, Rise/Drop, Break/Restore and Beat Grid — and
       lanes are reused by name, so a second run updates them instead of duplicating them.
     </p>
   </section>
@@ -657,13 +658,55 @@
     </div>
   </section>
 
+  <!-- FEATURES: STRAIGHT OUT OF THE BETA -->
+  <section class="wrap section-sm" id="features">
+    <span class="eyebrow">Straight out of the beta</span>
+    <h2 class="section" style="padding:0;font-size:clamp(24px,4vw,34px)">What you get, screenshot by screenshot.</h2>
+    <p class="sub">Five shots from the current beta build, untouched — structure, bars, the Beat Grid, and marker sets.</p>
+
+    <div class="slideshow" aria-roledescription="carousel" aria-label="Beta feature screenshots">
+      <div class="ss-stage"><div class="ss-track">
+        <figure class="ss-slide">
+          <img src="assets/feat_structure.png" loading="lazy"
+               alt="REAPER arrangement with colour-coded structure regions across the whole song — Intro, Bridge, Chorus, Verse — each region label showing a confidence percentage between 30 and 93 per cent.">
+          <figcaption>Intro, Verse, Chorus, Bridge as colour-coded regions across the whole song — each one carries the confidence the model actually had, and 93&nbsp;% and 30&nbsp;% both make it onto the timeline. You get to decide which one you trust.</figcaption>
+        </figure>
+        <figure class="ss-slide">
+          <img src="assets/feat_bars.png" loading="lazy"
+               alt="REAPER arrangement with a blue numbered marker on every bar of the song, 78 bars in total, and blue bar lines running through the waveform.">
+          <figcaption>A numbered marker on every bar, 78 of them in this song, so "we start at bar 57" finally points at something.</figcaption>
+        </figure>
+        <figure class="ss-slide">
+          <img src="assets/feat_beatgrid.png" loading="lazy"
+               alt="REAPER arrangement zoomed out with the Beat Grid lane switched on: 505 red Hit markers packed across two and a half minutes of waveform.">
+          <figcaption>Every event the model finds usable but isn't sure how to label lands in the Beat Grid — 505 of them in this track. Nothing here claims to know what it is. It only claims to be on the beat.</figcaption>
+        </figure>
+        <figure class="ss-slide">
+          <img src="assets/feat_beatgrid_zoom.png" loading="lazy"
+               alt="The same Beat Grid zoomed in to about ten seconds: individual numbered Hit markers, each sitting on a drum transient in the waveform.">
+          <figcaption>Up close it's numbered markers, one per hit, each sitting on the transient rather than near it — a lot of markers sitting right there, waiting for you to put them to use.</figcaption>
+        </figure>
+        <figure class="ss-slide">
+          <img src="assets/feat_marker_sets.png" loading="lazy"
+               alt="Zoomed REAPER waveform with two marker pairs: a Break marker where the music drops out and a Restore marker where it comes back, twice within four seconds.">
+          <figcaption>When the model is confident enough, it stops offering single markers and offers a marker set instead: Break where the music leaves, Restore where it comes back. Rise/Drop already works the same way; Drumroll, Fill and Strobe Roll ride along, and more pairs are in development.</figcaption>
+        </figure>
+      </div></div>
+    </div>
+    <p class="honest-note">
+      Every shot here is straight out of the beta, untouched. If you find a marker that sits in
+      the wrong place, you're welcome to keep it — put it with the ones you set yourself that
+      were also in the wrong place.
+    </p>
+  </section>
+
   <!-- BEAT GRID + TOOLS -->
   <section class="wrap section" id="tools">
     <span class="eyebrow">New in this beta</span>
     <h2>Nothing it hears gets lost.</h2>
     <p class="sub">
       Next to the structure regions, one run now sets a curated set of show events —
-      breakdown/break/stop and resume pairs, drop, staged rises, strobe roll, drumroll — all
+      break and restore pairs, drop, staged rises, strobe roll, drumroll — all
       named and colored, ready as your cue reference. And everything the analysis picks up but
       can't confidently name gets a home too.
     </p>
@@ -675,8 +718,10 @@
         <p>
           Anything the analysis hears rhythmically but can't confidently assign to one of the
           curated layers doesn't disappear — it lands on a lane called <b>Beat Grid</b>: a full
-          grid of neutral, uniform white markers that makes no claim about what it is. Everything
-          it hears, nothing invented. The raw drum grids (Kick, Snare, HiHat) are still in there
+          grid of uniform white markers, all named "Hit", with a type guess added in parentheses
+          where the tool has one — "Hit (Clap)", "Hit (Bassdrum)" and so on. The parentheses mean
+          a guess, not a guarantee — nothing is invented, and every marker still stays white on
+          the same lane. The raw drum grids (Kick, Snare, HiHat) are still in there
           and still ship switched off.
         </p>
       </div>
@@ -750,7 +795,7 @@
         <div class="phead"><span class="chip">On the roadmap</span></div>
         <h3 style="margin-top:14px">Coming soon · in active development</h3>
         <ul>
-          <li><strong>The curated event layers</strong> — breakdown/break/stop/resume, drop, staged rises, strobe roll and drumroll are built in, but treat them as a hint, not as something to rely on.</li>
+          <li><strong>The curated event layers</strong> — break/restore, drop, staged rises, strobe roll and drumroll are built in, but treat them as a hint, not as something to rely on.</li>
           <li><strong>Broader genre coverage</strong> — quality differs noticeably between live-band and electronic material; validation is ongoing across more styles and tempos.</li>
           <li><strong>Signed installer</strong> — the one-double-click install already ships; code-signing to skip the Gatekeeper right-click is next.</li>
         </ul>
@@ -833,13 +878,14 @@
           </svg>
           <span>Smart<span class="brand-accent">Markers</span></span>
         </a>
-        <p>Automatic song-structure detection for REAPER + console lighting workflows (grandMA3, Hog, Avolites &amp; more). A project by amazinglighting.design — currently in beta / early access.</p>
+        <p>Automatic song-structure detection for REAPER + console lighting workflows (grandMA3, Hog, Avolites &amp; more). A project by Michael Kuehbandner — currently in beta / early access.</p>
       </div>
       <div class="foot-col">
         <h4>Project</h4>
         <a class="js-get-link" href="#setup">Get the download link</a>
         <a href="SmartMarkers_User_Manual.pdf" target="_blank" rel="noopener">User Manual — PDF</a>
         <a href="#how">How it works</a>
+        <a href="#features">Features</a>
         <a href="#tools">Beat Grid &amp; tools</a>
         <a href="#scope">Roadmap &amp; scope</a>
       </div>
@@ -856,9 +902,8 @@
         <a href="https://huggingface.co/ASLP-lab/SongFormer" target="_blank" rel="noopener" style="color:var(--text-dim);text-decoration:underline">SongFormer</a>
         (ASLP-Lab), is a third-party component licensed separately under <code>CC-BY-4.0</code> — attribution required.
       </span>
-      <span>© 2026 amazinglighting.design ·
-        <a href="https://amazinglighting.design/imprint/" style="color:var(--text-dim);text-decoration:underline">Imprint</a> ·
-        <a href="https://amazinglighting.design/privacy/" style="color:var(--text-dim);text-decoration:underline">Privacy</a>
+      <span><a href="imprint.html" style="color:var(--text-dim);text-decoration:underline">Imprint</a> ·
+        <a href="privacy.html" style="color:var(--text-dim);text-decoration:underline">Privacy</a>
       </span>
     </div>
   </div>
