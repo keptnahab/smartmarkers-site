@@ -495,9 +495,12 @@
       <div class="mock-body">
         <video controls preload="metadata" poster="assets/film_poster.jpg"
                style="display:block;width:100%;max-width:100%;height:auto;border-radius:6px">
-          <source src="assets/smartmarkers-demo.mp4" type="video/mp4">
+          <!-- Dateiname traegt den Content-Hash: eine neue Filmfassung bekommt IMMER
+               einen neuen Namen, nie denselben. Sonst mischt der Browser-Range-Cache
+               alte und neue Bytes derselben URL (siehe DEPLOY.md, "Film ersetzen"). -->
+          <source src="assets/smartmarkers-demo.926b5ac0.mp4" type="video/mp4">
           Your browser can't play this video.
-          <a href="assets/smartmarkers-demo.mp4">Download it instead.</a>
+          <a href="assets/smartmarkers-demo.926b5ac0.mp4">Download it instead.</a>
         </video>
       </div>
     </div>
