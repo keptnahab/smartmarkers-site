@@ -620,8 +620,11 @@
     <p class="honest-note">
       These shots have the raw drum grids (Kick, Snare, HiHat) switched on to show the full
       picture. They ship switched off: the delivered lane set is deliberately curated —
-      Structure, Bar, Drumroll, Strobe Roll, Rise/Drop, Break/Restore and Beat Grid — and
-      lanes are reused by name, so a second run updates them instead of duplicating them.
+      Structure, Bar, Drumroll, Strobe Roll, Rise/Drop, Break/Restore and Beat Grid. Every run
+      starts from an empty project — it clears all markers, all regions and all ruler lanes
+      first (REAPER's own R/M lanes stay) and builds the set fresh, so a second run never piles
+      up on the first. It asks you before it does that, and one <b>Cmd+Z</b> puts everything
+      back the way it was.
     </p>
   </section>
 
@@ -795,7 +798,7 @@
         </li>
         <li>
           <h4>Load <code>reaper/SmartMarkers.lua</code> in REAPER</h4>
-          <p>Add the script as an action, select an audio item, and run it. The backend starts <b>automatically</b> on that first run — no terminal to keep open. The Smart Lane tool, <code>SmartMarkers_SmartLane.lua</code>, sits in the same folder and is registered the same way.</p>
+          <p>Add the script as an action, select an audio item, and run it. It asks once whether it may clear the project — every analysis starts from an empty timeline, and one <b>Cmd+Z</b> takes it back. The backend starts <b>automatically</b> on that first run — no terminal to keep open. The Smart Lane tool, <code>SmartMarkers_SmartLane.lua</code>, sits in the same folder and is registered the same way.</p>
         </li>
       </ol>
       <div class="req-list">
